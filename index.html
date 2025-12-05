@@ -16,19 +16,25 @@
             color: #005fa3;
         }
 
+        h2 {
+            color: #333;
+            margin-top: 60px;
+        }
+
         p {
             font-size: 18px;
             color: #333;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        .lab-buttons {
+        .lab-buttons, .extempore-buttons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
 
+        /* Blue buttons for Video Activity Instructions */
         .lab-buttons a {
             display: inline-block;
             padding: 20px 30px;
@@ -44,12 +50,31 @@
             background-color: #005fa3;
             transform: scale(1.05);
         }
+
+        /* Orange-gold (colorblind-safe) buttons for Extempore */
+        .extempore-buttons a {
+            display: inline-block;
+            padding: 20px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #e69500;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .extempore-buttons a:hover {
+            background-color: #b87400;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to the the SPAN1002 labs</h1>
-    <p>Click a button below to access the Instructions for each lab.</p>
+    <h1>Welcome to the Spanish Lab</h1>
+    <p>Click a button below to access the activities for each lab.</p>
 
+    <!-- VIDEO ACTIVITIES SECTION -->
+    <h2>🎥 Video Activity Instructions</h2>
     <div class="lab-buttons">
         <a href="lab-1.html">Lab 1</a>
         <a href="lab-2.html">Lab 2</a>
@@ -58,6 +83,17 @@
         <a href="lab-5.html">Lab 5</a>
         <a href="lab-6.html">Lab 6</a>
     </div>
+
+    <!-- EXTEMPORE PREPARATION SECTION -->
+    <h2>🎤 Extempore Preparación Activities</h2>
+    <div class="extempore-buttons">
+        <a href="lab-1-prep.html">Lab 1</a>
+        <a href="lab-2-prep.html">Lab 2</a>
+        <a href="lab-3-prep.html">Lab 3</a>
+        <a href="lab-4-prep.html">Lab 4</a>
+        <a href="lab-5-prep.html">Lab 5</a>
+        <a href="lab-6-prep.html">Lab 6</a>
+    </div>
+
 </body>
 </html>
-
