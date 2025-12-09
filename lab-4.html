@@ -1,8 +1,44 @@
-<div style="font-family: Arial, sans-serif; max-width: 1000px; margin: 20px auto; background: #fff3e0; border-radius: 12px; border: 1px solid #ffc107; box-shadow: 2px 2px 8px rgba; overflow: hidden; padding: 20px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lab 4 Instructions</title>
+<style>
+  /* Flashing animation */
+  @keyframes flash {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+
+  /* Flashing notice */
+  .notice {
+    background-color: #ff5252;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    animation: flash 1s infinite;
+    margin-bottom: 20px;
+  }
+
+  /* Flashing "No Safari!" text */
+  .flash-no-safari {
+    animation: flash 1s infinite;
+  }
+</style>
+</head>
+<body style="font-family: Arial, sans-serif; max-width: 1000px; margin: 20px auto; background: #fff3e0; border-radius: 12px; border: 1px solid #ffc107; box-shadow: 2px 2px 8px rgba; overflow: hidden; padding: 20px;">
+
+<!-- FLASHING NOTICE -->
+<div class="notice">
+⚠️ Please answer the FIRST question on Extempore! This is where your rubric, grades, and feedback will be posted.
+</div>
 
 <div style="display: flex; justify-content: space-between; align-items: center; background: #ffe082; padding: 20px; border-radius: 8px;">
 <h1 style="margin: 0; font-size: 60px; font-weight: 900; color: #333; font-family: 'Roboto Black', sans-serif;">LAB 4</h1>
-
 <table style="font-size: 14px; border-collapse: collapse;">
 <tbody>
 <tr>
@@ -26,15 +62,13 @@
 </div>
 
 <div style="display: flex; margin-top: 30px;">
-
-<!-- Left Column -->
+<!-- LEFT COLUMN -->
 <div style="width: 50%; background: #ffe082; border-radius: 8px 0 0 8px; padding: 15px;">
-
 <h3 style="color: #444; margin-top: 0;">📝 Summary</h3>
 <p>Completing this activity involves responding to a series of questions, making questions of your own, or describing a picture based on a prompt.</p>
 
 <h3 style="color: #444;">📍 Context</h3>
-<p>You recently met your friend Ale after a couple of years. You shared your social media, and Ale was interested in learning more about you and the moments in your pictures. Discuss with Ale about the important moments in your life. As usual, ask questions and respond with your own thoughts using complete sentences!</p>
+<p>You recently met your friend Ale after a couple of years. You shared your social media, and Ale was interested in learning more about you and the moments in your pictures. Discuss with Ale the important moments in your life. As usual, ask questions and respond with your own thoughts using complete sentences!</p>
 
 <h3 style="color: #444; margin-top: 30px;">🚦 Process</h3>
 <p>Before you start, you can practice for your assignment <a rel="noopener" href="https://ung.view.usg.edu/d2l/common/dialogs/quickLink/quickLink.d2l?ou={orgUnitId}&type=content&rcode=usgx-22036070" target="_blank">here</a>. You will be graded based on this rubric (<a rel="noopener" href="https://ung.view.usg.edu/d2l/common/dialogs/quickLink/quickLink.d2l?ou={orgUnitId}&type=rubric&rCode=usgx-18797239" target="_blank">link here</a>).</p>
@@ -48,12 +82,10 @@
 <img src="https://junnynoh-tech.github.io/span1002-instructions/images/lab-4-image-1.jpg" alt="Lab 4 image 1" style="width: 100%; border-radius: 10px;">
 <p style="font-size: 10px;">Photo by Samantha Gades on <a rel="noopener" href="https://unsplash.com/photos/laughing-people-in-party-fIHozNWfcvs" target="_blank">Unsplash</a></p>
 </div>
-
 </div>
 
-<!-- Right Column -->
+<!-- RIGHT COLUMN -->
 <div style="width: 50%; background: #ffe082; border-radius: 0 8px 8px 0; padding: 15px;">
-
 <div>
 <img src="https://junnynoh-tech.github.io/span1002-instructions/images/lab-4-image-2.jpg" alt="Lab 4 image 2" style="width: 100%; border-radius: 10px;">
 <p style="font-size: 10px;">Photo by Jay Chen on <a rel="noopener" href="https://unsplash.com/photos/boy-in-blue-and-white-plaid-dress-shirt-holding-yellow-balloons-nCEGI7gBkg8" target="_blank">Unsplash</a></p>
@@ -61,7 +93,7 @@
 
 <h3 style="color: #444; margin-top: 30px;">📦 What You Will Need</h3>
 <ul>
-<li>Google Chrome browser (<strong><span style="color: #cd2026;">No Safari!</span></strong>)</li>
+<li>Google Chrome browser (<strong><span class="flash-no-safari" style="color: #cd2026;">No Safari!</span></strong>)</li>
 </ul>
 
 <h3 style="color: #444;">✅ Requirements</h3>
@@ -79,7 +111,8 @@
 <li><a rel="noopener" href="https://support.google.com/chrome/answer/95414?co=GENIE.Platform%3DDesktop&hl=en" target="_blank">Troubleshooting (Update Chrome)</a></li>
 <li><a rel="noopener" href="https://student.extemporeapp.com/video-check" target="_blank">Browser Compatibility Check</a></li>
 </ul>
+</div>
+</div>
 
-</div>
-</div>
-</div>
+</body>
+</html>
