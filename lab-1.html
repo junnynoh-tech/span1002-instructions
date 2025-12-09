@@ -1,5 +1,23 @@
 <div style="font-family: Arial, sans-serif; max-width: 1000px; margin: 20px auto; background: #fff3e0; border-radius: 12px; border: 1px solid #ffc107; box-shadow: 2px 2px 8px rgba; overflow: hidden; padding: 20px;">
-<div style="display: flex; justify-content: space-between; align-items: center; background: #ffe082; padding: 20px; border-radius: 8px;">
+
+<!-- FLASHING NOTICE -->
+<div style="background-color: #ff5252; color: white; text-align: center; font-weight: bold; font-size: 18px; padding: 10px; border-radius: 8px; animation: flash 1s infinite;">
+⚠️ Please answer the FIRST question on Extempore! This is where your rubric, grades, and feedback will be posted.
+</div>
+
+<style>
+@keyframes flash {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* Flashing No Safari text */
+.flash-no-safari {
+  animation: flash 1s infinite;
+}
+</style>
+
+<div style="display: flex; justify-content: space-between; align-items: center; background: #ffe082; padding: 20px; border-radius: 8px; margin-top: 20px;">
 <h1 style="margin: 0; font-size: 60px; font-weight: 900; color: #333; font-family: 'Roboto Black', sans-serif;">LAB 1</h1>
 <table style="font-size: 14px; border-collapse: collapse;">
 <tbody>
@@ -57,7 +75,7 @@
 
 <h3 style="color: #444; margin-top: 30px;">📦 What You Will Need</h3>
 <ul>
-<li>Google Chrome browser (<strong><span style="color: #cd2026;">No Safari!</span></strong>)</li>
+<li>Google Chrome browser (<strong><span class="flash-no-safari" style="color: #cd2026;">No Safari!</span></strong>)</li>
 </ul>
 
 <h3 style="color: #444;">✅ Requirements</h3>
