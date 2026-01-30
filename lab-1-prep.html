@@ -50,7 +50,7 @@
       margin-bottom: 1.25rem;
     }
 
-    /* ---------------- VIDEO ---------------- */
+    /* ---------- VIDEO ---------- */
 
     #video-container {
       max-width: 800px;
@@ -65,7 +65,6 @@
       background: #000;
     }
 
-    /* Floating mini-player */
     .floating {
       position: fixed;
       bottom: 1rem;
@@ -74,10 +73,8 @@
       max-width: 90vw;
       z-index: 1000;
       box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-      background: #000;
     }
 
-    /* Return button */
     #return-video {
       display: none;
       position: fixed;
@@ -93,23 +90,11 @@
       cursor: pointer;
     }
 
-    #return-video:focus {
-      outline: 3px solid #000;
-      outline-offset: 2px;
-    }
-
     .show-button {
       display: block;
     }
 
-    /* Reduced motion support */
-    @media (prefers-reduced-motion: reduce) {
-      .floating {
-        transition: none;
-      }
-    }
-
-    /* ---------------- CONTENT ---------------- */
+    /* ---------- CONTENT ---------- */
 
     ul {
       padding-left: 1.25rem;
@@ -138,6 +123,12 @@
       cursor: pointer;
     }
 
+    .translation {
+      color: #444;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
     .checklist label {
       display: block;
       margin: 0.4rem 0;
@@ -162,8 +153,8 @@
   <section>
     <h2>🎯 Goal</h2>
     <p>
-      Help you feel confident responding naturally about shopping, clothes,
-      and graduation plans.
+      Help you feel confident responding naturally about shopping,
+      clothes, and graduation plans.
     </p>
   </section>
 
@@ -174,42 +165,20 @@
     </p>
 
     <div id="video-container">
-      <video
-        id="labVideo"
-        controls
-        preload="metadata"
-        aria-describedby="video-desc"
-      >
+      <video id="labVideo" controls preload="metadata">
         <source
           src="https://junnynoh-tech.github.io/span1002-instructions/videos/extempore_prep_1.mp4"
-          type="video/mp4"
-        >
-
-        <!-- Caption file (add later if you want) -->
-        <!--
-        <track
-          kind="captions"
-          srclang="es"
-          src="captions/extempore_prep_1.vtt"
-          label="Español"
-        >
-        -->
-
+          type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
-
-    <p id="video-desc">
-      This video models the topic of this lab.
-    </p>
   </section>
 
-  <button id="return-video" aria-label="Return video to top">
-    ⬆ Return video to top
-  </button>
+  <button id="return-video">⬆ Return video to top</button>
 
   <section>
     <h2>🧩 Useful chunks</h2>
+
     <div class="chunks">
       <span>Me gusta / No me gusta…</span>
       <span>Prefiero… porque…</span>
@@ -217,15 +186,38 @@
       <span>La tienda está cerca / lejos…</span>
       <span>Voy a pagar con…</span>
     </div>
+
+    <details>
+      <summary>▸ Show English translations</summary>
+      <div class="translation">
+        <p>I like / I don’t like…</p>
+        <p>I prefer… because…</p>
+        <p>I need to buy…</p>
+        <p>The store is close / far…</p>
+        <p>I am going to pay with…</p>
+      </div>
+    </details>
   </section>
 
   <section>
     <h2>❓ Follow-up questions</h2>
+
     <ul>
       <li>¿Necesitas…?</li>
       <li>¿Cuándo…?</li>
       <li>¿Dónde…?</li>
     </ul>
+
+    <details>
+      <summary>▸ Show English translations</summary>
+      <div class="translation">
+        <p>Do you need…?</p>
+        <p>When…?</p>
+        <p>Where…?</p>
+      </div>
+    </details>
+
+    <p><strong>Ask at least three follow-up questions.</strong></p>
   </section>
 
   <section>
@@ -234,32 +226,62 @@
     <details>
       <summary>Saber</summary>
       <p><strong>Sé cuánto cuesta la camisa.</strong></p>
+      <p class="translation">I know how much the shirt costs.</p>
     </details>
 
     <details>
       <summary>Conocer</summary>
       <p><strong>Conozco la tienda en el centro.</strong></p>
+      <p class="translation">I know the store downtown.</p>
     </details>
 
     <p>
       Try to include <strong>one sentence with saber</strong> and
-      <strong>one with conocer</strong>.
+      <strong>one sentence with conocer</strong>.
     </p>
+  </section>
+
+  <section>
+    <h2>🎥 After the video: Use the preterite</h2>
+    <p>
+      After watching the video, describe <strong>what happened</strong>
+      using the <strong>preterite tense</strong>.
+    </p>
+    <p>
+      Aim for <strong>8–9 short phrases</strong>. These should describe
+      completed actions or events you saw in the video.
+    </p>
+
+    <details>
+      <summary>▸ What does this look like?</summary>
+      <div class="translation">
+        <p>Examples of short phrases:</p>
+        <ul>
+          <li>Entró en la tienda.</li>
+          <li>Miró la ropa.</li>
+          <li>Compró una camisa.</li>
+          <li>Pagó con tarjeta.</li>
+        </ul>
+        <p>
+          Speak naturally. <strong>Do not write anything down.</strong>
+        </p>
+      </div>
+    </details>
   </section>
 
   <section>
     <h2>✅ Self-check</h2>
     <div class="checklist">
-      <label><input type="checkbox"> Complete sentences</label>
-      <label><input type="checkbox"> 3 follow-up questions</label>
-      <label><input type="checkbox"> Saber used correctly</label>
-      <label><input type="checkbox"> Conocer used correctly</label>
-      <label><input type="checkbox"> Preterite used</label>
+      <label><input type="checkbox"> I used complete sentences</label>
+      <label><input type="checkbox"> I asked 3 follow-up questions</label>
+      <label><input type="checkbox"> I used saber correctly</label>
+      <label><input type="checkbox"> I used conocer correctly</label>
+      <label><input type="checkbox"> I used the preterite (8–9 phrases)</label>
     </div>
   </section>
 
   <footer>
-    SPAN 1002 · Language Lab · Accessible instructional design
+    SPAN 1002 · Language Lab · Designed for accessibility and clarity
   </footer>
 
 </main>
@@ -270,40 +292,29 @@
   const section = document.getElementById("video-section");
   const returnBtn = document.getElementById("return-video");
 
-  let isFloating = false;
   let allowDock = false;
+  let isFloating = false;
 
-  // Allow docking after 3 seconds of playback
   video.addEventListener("timeupdate", () => {
-    if (video.currentTime > 3) {
-      allowDock = true;
-    }
+    if (video.currentTime > 3) allowDock = true;
   });
 
-  function handleScroll() {
-    const sectionBottom = section.getBoundingClientRect().bottom;
+  document.addEventListener("scroll", () => {
+    const bottom = section.getBoundingClientRect().bottom;
 
-    if (
-      allowDock &&
-      !video.paused &&
-      sectionBottom < 0 &&
-      !isFloating
-    ) {
+    if (!video.paused && allowDock && bottom < 0 && !isFloating) {
       container.classList.add("floating");
       returnBtn.classList.add("show-button");
       isFloating = true;
     }
 
-    if (sectionBottom >= 0 && isFloating) {
+    if (bottom >= 0 && isFloating) {
       container.classList.remove("floating");
       returnBtn.classList.remove("show-button");
       isFloating = false;
     }
-  }
+  });
 
-  document.addEventListener("scroll", handleScroll);
-
-  // Return video to top
   returnBtn.addEventListener("click", () => {
     section.scrollIntoView({ behavior: "smooth" });
     container.classList.remove("floating");
@@ -311,7 +322,6 @@
     isFloating = false;
   });
 
-  // Reset when video ends
   video.addEventListener("ended", () => {
     container.classList.remove("floating");
     returnBtn.classList.remove("show-button");
