@@ -1,8 +1,324 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <title>Lab 1 – De compras (Capítulo 6)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --primary: #1f4fd8;
+      --secondary: #f4f6fb;
+      --accent: #0b7a75;
+      --text: #1a1a1a;
+      --border: #dcdcdc;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 0;
+      padding: 1rem;
+      background: #ffffff;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .subtitle {
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    section {
+      background: var(--secondary);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ---------------- VIDEO ---------------- */
+
+    #video-container {
+      max-width: 800px;
+      margin: 1rem auto;
+      position: relative;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
+    /* Floating mini-player */
+    .floating {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      width: 320px;
+      max-width: 90vw;
+      z-index: 1000;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      background: #000;
+    }
+
+    /* Return button */
+    #return-video {
+      display: none;
+      position: fixed;
+      bottom: calc(1rem + 200px);
+      right: 1rem;
+      z-index: 1001;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    #return-video:focus {
+      outline: 3px solid #000;
+      outline-offset: 2px;
+    }
+
+    .show-button {
+      display: block;
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      .floating {
+        transition: none;
+      }
+    }
+
+    /* ---------------- CONTENT ---------------- */
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    .chunks span {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      margin: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    details {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      margin-top: 0.75rem;
+    }
+
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .checklist label {
+      display: block;
+      margin: 0.4rem 0;
+      cursor: pointer;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #555;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
-<body style="font-family: 'Lato', sans-serif;">
-<p><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRPXV6erMJp2cHtWZp_oZeD8WZM1Knpi0UQ0cIB6i0aC5X7sw2XDgZejUY0RteBKg/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>
+
+<body>
+<main>
+
+  <h1>Lab 1 – De compras</h1>
+  <p class="subtitle">Capítulo 6 · Extempore Conversation</p>
+
+  <section>
+    <h2>🎯 Goal</h2>
+    <p>
+      Help you feel confident responding naturally about shopping, clothes,
+      and graduation plans.
+    </p>
+  </section>
+
+  <section id="video-section">
+    <h2>🎬 Watch the video</h2>
+    <p>
+      Start the video. You may scroll down while it continues to play.
+    </p>
+
+    <div id="video-container">
+      <video
+        id="labVideo"
+        controls
+        preload="metadata"
+        aria-describedby="video-desc"
+      >
+        <source
+          src="https://junnynoh-tech.github.io/span1002-instructions/videos/extempore_prep_1.mp4"
+          type="video/mp4"
+        >
+
+        <!-- Caption file (add later if you want) -->
+        <!--
+        <track
+          kind="captions"
+          srclang="es"
+          src="captions/extempore_prep_1.vtt"
+          label="Español"
+        >
+        -->
+
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <p id="video-desc">
+      This video explains the final speaking task for this lab.
+    </p>
+  </section>
+
+  <button id="return-video" aria-label="Return video to top">
+    ⬆ Return video to top
+  </button>
+
+  <section>
+    <h2>🧩 Useful chunks</h2>
+    <div class="chunks">
+      <span>Me gusta / No me gusta…</span>
+      <span>Prefiero… porque…</span>
+      <span>Necesito comprar…</span>
+      <span>La tienda está cerca / lejos…</span>
+      <span>Voy a pagar con…</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>❓ Follow-up questions</h2>
+    <ul>
+      <li>¿Necesitas…?</li>
+      <li>¿Cuándo…?</li>
+      <li>¿Dónde…?</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📘 Saber vs. Conocer</h2>
+
+    <details>
+      <summary>Saber</summary>
+      <p><strong>Sé cuánto cuesta la camisa.</strong></p>
+    </details>
+
+    <details>
+      <summary>Conocer</summary>
+      <p><strong>Conozco la tienda en el centro.</strong></p>
+    </details>
+
+    <p>
+      Try to include <strong>one sentence with saber</strong> and
+      <strong>one with conocer</strong>.
+    </p>
+  </section>
+
+  <section>
+    <h2>✅ Self-check</h2>
+    <div class="checklist">
+      <label><input type="checkbox"> Complete sentences</label>
+      <label><input type="checkbox"> 3 follow-up questions</label>
+      <label><input type="checkbox"> Saber used correctly</label>
+      <label><input type="checkbox"> Conocer used correctly</label>
+      <label><input type="checkbox"> Preterite used</label>
+    </div>
+  </section>
+
+  <footer>
+    SPAN 1002 · Language Lab · Accessible instructional design
+  </footer>
+
+</main>
+
+<script>
+  const video = document.getElementById("labVideo");
+  const container = document.getElementById("video-container");
+  const section = document.getElementById("video-section");
+  const returnBtn = document.getElementById("return-video");
+
+  let isFloating = false;
+  let allowDock = false;
+
+  // Allow docking after 3 seconds of playback
+  video.addEventListener("timeupdate", () => {
+    if (video.currentTime > 3) {
+      allowDock = true;
+    }
+  });
+
+  function handleScroll() {
+    const sectionBottom = section.getBoundingClientRect().bottom;
+
+    if (
+      allowDock &&
+      !video.paused &&
+      sectionBottom < 0 &&
+      !isFloating
+    ) {
+      container.classList.add("floating");
+      returnBtn.classList.add("show-button");
+      isFloating = true;
+    }
+
+    if (sectionBottom >= 0 && isFloating) {
+      container.classList.remove("floating");
+      returnBtn.classList.remove("show-button");
+      isFloating = false;
+    }
+  }
+
+  document.addEventListener("scroll", handleScroll);
+
+  // Return video to top
+  returnBtn.addEventListener("click", () => {
+    section.scrollIntoView({ behavior: "smooth" });
+    container.classList.remove("floating");
+    returnBtn.classList.remove("show-button");
+    isFloating = false;
+  });
+
+  // Reset when video ends
+  video.addEventListener("ended", () => {
+    container.classList.remove("floating");
+    returnBtn.classList.remove("show-button");
+    isFloating = false;
+    allowDock = false;
+  });
+</script>
+
 </body>
 </html>
