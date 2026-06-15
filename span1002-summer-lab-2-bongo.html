@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>SPAN 1002 — Lab 2 Bongo Instructions</title>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SPAN 1002 — Lab 3 Bongo Instructions</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -19,7 +18,6 @@
 body{font-family:'DM Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);padding:16px;}
 .box{max-width:640px;margin:0 auto;background:var(--white);border-radius:14px;
      box-shadow:var(--shadow);overflow:hidden;}
-/* Top bar */
 .top-bar{background:var(--navy);padding:14px 22px;display:flex;align-items:center;gap:14px;}
 .lab-num{font-family:'Fraunces',Georgia,serif;font-size:36px;font-weight:900;
          color:#f4a460;letter-spacing:-1px;line-height:1;flex-shrink:0;}
@@ -30,18 +28,14 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--cream);color:var(--
 .mode-pill{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
            padding:3px 10px;border-radius:12px;white-space:nowrap;}
 .mode-pill.camera{background:rgba(194,84,37,0.25);color:#f4a460;border:1px solid rgba(244,164,96,0.35);}
-.mode-pill.camscreen{background:rgba(15,118,110,0.22);color:#5eead4;border:1px solid rgba(94,234,212,0.28);}
+.mode-pill.upload{background:rgba(184,149,42,0.22);color:#e8d080;border:1px solid rgba(184,149,42,0.35);}
 .session-pill{font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
-              padding:3px 10px;border-radius:12px;white-space:nowrap;background:rgba(122,184,232,0.12);
-              color:#7ab8e8;border:1px solid rgba(122,184,232,0.3);}
-/* Body */
+              padding:3px 10px;border-radius:12px;white-space:nowrap;}
 .body{padding:18px 22px 22px;}
-/* Section label */
 .slabel{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
         color:var(--muted);display:flex;align-items:center;gap:8px;margin:16px 0 8px;}
 .slabel:first-child{margin-top:0;}
 .slabel::after{content:'';flex:1;height:1px;background:var(--parch);}
-/* Step list */
 .steps{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .steps li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;
           line-height:1.65;color:var(--soft);padding:9px 13px;
@@ -50,7 +44,6 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--cream);color:var(--
     background:linear-gradient(135deg,var(--terra),#9e3e1a);color:white;
     font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;
     flex-shrink:0;margin-top:1px;}
-/* Checklist */
 .chklist{list-style:none;display:flex;flex-direction:column;gap:6px;}
 .chklist li{display:flex;gap:10px;align-items:flex-start;font-size:13px;
             line-height:1.6;color:var(--soft);padding:8px 12px;
@@ -60,87 +53,85 @@ body{font-family:'DM Sans',Arial,sans-serif;background:var(--cream);color:var(--
     font-size:12px;font-weight:700;color:var(--green);flex-shrink:0;margin-top:1px;
     cursor:pointer;transition:all .15s;user-select:none;}
 .ck.done{background:var(--green);border-color:var(--green);color:white;}
-/* Reset box */
 .reset-box{display:flex;gap:12px;align-items:center;background:var(--navy);
            border-radius:10px;padding:12px 16px;margin-top:12px;}
 .reset-icon{font-size:26px;line-height:1;flex-shrink:0;}
 .reset-text{color:rgba(255,255,255,0.85);font-size:12.5px;line-height:1.6;}
 .reset-text strong{color:white;}
-/* Alert */
 .alert{border-radius:8px;padding:9px 13px;font-size:12.5px;line-height:1.6;
        margin-top:10px;display:flex;gap:8px;align-items:flex-start;}
 .alert.gold{background:var(--gold-lt);border:1.5px solid var(--gold-bdr);color:#5a3e00;}
 .alert.red{background:var(--red-lt);border:1.5px solid var(--red-bdr);color:#7a0010;}
 .alert.info{background:var(--terra-lt);border:1.5px solid var(--terra-bdr);color:#7a2c00;}
+.transfer-btn{background:none;border:1.5px solid var(--parch);border-radius:8px;
+  padding:7px 14px;font-family:inherit;font-size:12.5px;font-weight:600;
+  color:var(--muted);cursor:pointer;margin-top:10px;display:flex;align-items:center;gap:7px;}
+.transfer-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+@media(max-width:480px){.transfer-grid{grid-template-columns:1fr;}}
+.transfer-card{background:var(--cream);border:1.5px solid var(--parch);
+  border-radius:8px;padding:10px 12px;}
+.transfer-card h4{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.transfer-card p{font-size:11.5px;color:var(--muted);line-height:1.5;}
 footer{text-align:center;padding:12px;font-size:10.5px;color:var(--muted);}
 </style>
-</head>
-<body>
-<div class="box">
-
-  <div class="top-bar">
-    <div class="lab-num">2</div>
-    <div class="top-bar-text">
-      <h2>Rutina para una vida sana</h2>
-      <p>SPAN 1002 · Language Lab · Bongo</p>
-    </div>
-    <div class="mode-tag">
-      <span class="mode-pill camscreen">🖥️ Camera + Screen</span>
-      <span class="session-pill" style="background:rgba(244,164,96,0.15);color:#f4a460;border-color:rgba(244,164,96,0.35);">☀️ Summer Session</span>
-    </div>
-  </div>
-
-  <div class="body">
-
-    <div class="slabel"><span>▶️</span>How to record in Bongo</div>
-      <ol class="steps">
-        <li><span class="sn">1</span><span>Open the <strong>Lab 2 Bongo assignment</strong> in D2L. Click the link to launch Bongo.</span></li>
-        <li><span class="sn">2</span><span>Allow <strong>camera, microphone, and screen sharing</strong> when Chrome asks.</span></li>
-        <li><span class="sn">3</span><span>Select <strong>Camera and Screen</strong> mode — <em>not</em> Camera only. This captures both your face and your slides.</span></li>
-        <li><span class="sn">4</span><span>Have your <strong>slides open</strong> in a separate window <em>before</em> you click Record. Share that window when prompted.</span></li>
-        <li><span class="sn">5</span><span>Click <strong>Record</strong>. Advance slides manually as you speak. Keep your face in the camera overlay.</span></li>
-        <li><span class="sn">6</span><span>Click <strong>Stop</strong> when finished. Play back your recording before submitting.</span></li>
-        <li><span class="sn">7</span><span>Click <strong>Submit</strong> when satisfied.</span></li>
-      </ol>
-    <div class="alert gold"><span>💡</span><span>Prepare your slides in <strong>PowerPoint, Google Slides, or Canva</strong> before opening Bongo. Keywords only on slides — full sentences are spoken, not read. If Camera and Screen fails, use the Alternative Recording option in the lab instructions.</span></div>
-
-    <div class="slabel"><span>✅</span>Before you submit</div>
-    <ul class="chklist">
-      <li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span>Played back the full recording</span></li>
-      <li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span><strong>Face is visible</strong> the entire time</span></li>
-      <li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span><strong>Audio is clear</strong> — you can hear your voice throughout</span></li>
-      <li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span>Spoke <strong>only in Spanish</strong> throughout</span></li>
-      <li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span>Recording is the right <strong>length</strong> — check the rubric inside Bongo</span></li>
-    </ul>
-
-    <div class="reset-box" role="note">
-      <div class="reset-icon">⋮</div>
-      <div class="reset-text">
-        <strong>Need to re-record?</strong> Click the <strong>three-dot menu (⋮)</strong> at the top-right of the Bongo page → <strong>Reset Submission</strong>. Available any time before the deadline.
-      </div>
-    </div>
-
-    <div class="alert red" style="margin-top:12px;">
-      <span>🔧</span>
-      <span>Having trouble? Use <strong>Google Chrome on a laptop</strong>. Clear cache and cookies if the recorder won't load. For Camera and Screen, close other apps using the mic or camera first. Contact the Language Lab <strong>before the deadline</strong> if you have a technical issue.</span>
-    </div>
-
-  </div>
+</head><body><div class="box">
+<div class="top-bar">
+<div class="lab-num">3</div>
+<div class="top-bar-text">
+<h2>A cocinar</h2>
+<p>SPAN 1002 · Language Lab · Bongo</p>
 </div>
-<footer>SPAN 1002 — Lab 2: Rutina para una vida sana · University of North Georgia</footer>
+<div class="mode-tag"><span class="mode-pill camera">🎥 Camera</span><span class="mode-pill upload">📱 Upload</span><span class="session-pill" style="background:rgba(196,181,253,0.12);color:#c4b5fd;border:1px solid rgba(196,181,253,0.35);">💻 Online Section</span></div>
+</div>
+<div class="body">
+<div class="slabel"><span>▶️</span>How to submit your cooking video</div>
+<ol class="steps">
+<li><span class="sn">1</span><span>Record your cooking video in Spanish on your phone. Cover all four parts: <strong>introducción, ingredientes, pasos, ¡listo!</strong></span></li>
+<li><span class="sn">2</span><span>Transfer the video to your computer.
+<button class="transfer-btn" onclick="var d=document.getElementById('transfer-help');d.style.display=d.style.display==='none'?'block':'none';">💡 Need help transferring?</button>
+<div id="transfer-help" style="display:none;">
+<div class="transfer-grid">
+<div class="transfer-card"><h4>📱 iPhone → Mac</h4><p><strong>AirDrop</strong> is fastest. Or save to iCloud Drive.</p></div>
+<div class="transfer-card"><h4>🤖 Android → PC</h4><p><strong>USB cable</strong> or upload to Google Drive and download.</p></div>
+<div class="transfer-card"><h4>📧 Any phone</h4><p><strong>Email the file</strong> to yourself and download it.</p></div>
+<div class="transfer-card"><h4>☁️ Any phone</h4><p><strong>Google Drive, Dropbox, or OneDrive</strong> — upload then download.</p></div>
+</div>
+</div>
+</span></li>
+<li><span class="sn">3</span><span>Open the <strong>Lab 3 Bongo assignment</strong> in D2L.</span></li>
+<li><span class="sn">4</span><span>Click <strong>Upload</strong> — <em>not</em> Record. Select your video file and wait for it to finish uploading.</span></li>
+<li><span class="sn">5</span><span>Preview the video in Bongo to confirm it plays correctly, then click <strong>Submit</strong>.</span></li>
+</ol>
+<div class="alert gold"><span>💡</span><span>Any dish is fine — ramen, a sandwich, scrambled eggs, anything you can prepare. Supported formats: <strong>MP4, MOV, AVI.</strong> If the file is too large, trim it or lower the resolution before uploading.</span></div>
+<div class="slabel"><span>✅</span>Before you submit</div>
+<ul class="chklist">
+<li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span>Played back the full video</span></li>
+<li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span><strong>Face is visible</strong> the entire time</span></li>
+<li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span><strong>Audio is clear</strong> — you can hear your voice throughout</span></li>
+<li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span>Spoke <strong>only in Spanish</strong> throughout</span></li>
+<li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span>Covered all four required parts</span></li>
+<li><span class="ck" role="checkbox" aria-checked="false" tabindex="0"></span><span>Recording is the right <strong>length</strong> — <strong>1.5–2.5 minutes</strong> in length</span></li>
+</ul>
+<div class="reset-box" role="note">
+<div class="reset-icon">⋮</div>
+<div class="reset-text"><strong>Uploaded the wrong file?</strong> Click the <strong>three-dot menu (⋮)</strong> at the top-right of the Bongo page → <strong>Reset Submission</strong>. Available any time before the deadline.</div>
+</div>
+<div class="alert red" style="margin-top:12px;"><span>🔧</span><span>Having trouble uploading? Try a different browser or a smaller file. Contact the Language Lab <strong>before the deadline</strong> if you have a technical issue — not after.</span></div>
+</div>
+</div>
+<footer>SPAN 1002 — Lab 3: A cocinar · University of North Georgia</footer>
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  document.querySelectorAll('.ck').forEach(function(el){
-    el.addEventListener('click',function(){
+document.addEventListener('DOMContentLoaded',function(){{
+  document.querySelectorAll('.ck').forEach(function(el){{
+    el.addEventListener('click',function(){{
       this.classList.toggle('done');
-      this.textContent = this.classList.contains('done') ? '✓' : '';
-      this.setAttribute('aria-checked', String(this.classList.contains('done')));
-    });
-    el.addEventListener('keydown',function(e){
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click();}
-    });
-  });
-});
+      this.textContent=this.classList.contains('done')?'✓':'';
+      this.setAttribute('aria-checked',String(this.classList.contains('done')));
+    }});
+    el.addEventListener('keydown',function(e){{
+      if(e.key==='Enter'||e.key===' '){{e.preventDefault();this.click();}}
+    }});
+  }});
+}});
 </script>
-</body>
-</html>
+</body></html>
