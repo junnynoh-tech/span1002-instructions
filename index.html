@@ -1,110 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spanish Lab Activities</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            text-align: center;
-            padding: 50px;
-        }
-
-        h1 {
-            color: #005fa3;
-        }
-
-        h2 {
-            color: #333;
-            margin-top: 60px;
-        }
-
-        p {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .lab-buttons, .bongo-buttons, .extempore-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        /* Blue buttons for Video Activity Instructions */
-        .lab-buttons a, .bongo-buttons a {
-            display: inline-block;
-            padding: 20px 30px;
-            font-size: 18px;
-            color: white;
-            background-color: #0073e6;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .lab-buttons a:hover, .bongo-buttons a:hover {
-            background-color: #005fa3;
-            transform: scale(1.05);
-        }
-
-        /* Orange-gold (colorblind-safe) buttons for Extempore */
-        .extempore-buttons a {
-            display: inline-block;
-            padding: 20px 30px;
-            font-size: 18px;
-            color: white;
-            background-color: #e69500;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .extempore-buttons a:hover {
-            background-color: #b87400;
-            transform: scale(1.05);
-        }
-    </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SPAN 1002 — Spanish Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#c8102e;--gold:#b8952a;--navy:#002147;
+  --terra:#c25425;--terra-lt:#fef3ee;--terra-bdr:rgba(194,84,37,0.3);
+  --ink:#0d1525;--soft:#1e3a5f;--muted:#4a5f75;
+  --cream:#faf8f6;--white:#ffffff;--parch:#ede8e3;
+  --shadow:0 8px 40px rgba(0,33,71,0.13);--shadow-sm:0 2px 12px rgba(0,33,71,0.08);
+  --red-lt:#fff0f2;--gold-lt:#fffbf0;--green:#1a5c1a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 5% 10%,rgba(194,84,37,0.05) 0%,transparent 50%),radial-gradient(ellipse at 95% 90%,rgba(0,33,71,0.05) 0%,transparent 50%);pointer-events:none;z-index:0;}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px;}
+.skip-link{position:absolute;top:-40px;left:0;background:var(--gold);color:var(--ink);padding:8px 16px;font-weight:700;z-index:10000;border-radius:0 0 8px 0;transition:top .2s;}.skip-link:focus{top:0;}
+header{background:var(--navy);color:white;padding:36px 48px;display:flex;align-items:center;gap:28px;position:relative;overflow:hidden;z-index:1;}
+header::after{content:'ESPAÑOL';position:absolute;right:-20px;bottom:-10px;font-family:'Fraunces',serif;font-size:100px;font-weight:900;color:rgba(255,255,255,0.03);letter-spacing:-4px;pointer-events:none;white-space:nowrap;}
+.flag{display:flex;flex-direction:column;gap:4px;flex-shrink:0;}
+.fbar{width:44px;height:6px;border-radius:3px;}.fbar.r{background:var(--red);}.fbar.y{background:var(--gold);}
+.htext h1{font-family:'Fraunces',serif;font-size:42px;font-weight:900;letter-spacing:-1px;line-height:1;}
+.htext h1 em{color:#e8a87c;font-style:normal;}
+.htext p{margin-top:6px;font-size:13px;font-weight:300;color:rgba(255,255,255,0.45);letter-spacing:.5px;}
+.hwelcome{margin-left:auto;text-align:right;position:relative;z-index:1;}
+.hwelcome-main{font-family:'Fraunces',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,0.65);}
+.hwelcome-sub{margin-top:6px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+@media(max-width:640px){header{padding:24px 20px;gap:16px;}.htext h1{font-size:30px;}.hwelcome{display:none;}}
+.page{max-width:900px;margin:0 auto;padding:44px 28px 80px;position:relative;z-index:1;}
+.card{background:var(--white);border-radius:16px;box-shadow:var(--shadow);margin-bottom:20px;overflow:hidden;}
+.card-inner{padding:28px 32px;}
+h2.card-title{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:14px;letter-spacing:-0.3px;}
+p.bt{font-size:14px;line-height:1.75;color:var(--soft);}
+.tabs-nav{display:flex;gap:4px;flex-wrap:wrap;border-bottom:2px solid var(--parch);margin-bottom:0;}
+.tab-btn{background:none;border:none;cursor:pointer;padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--muted);border-radius:10px 10px 0 0;border:1.5px solid transparent;border-bottom:none;transition:all .18s;position:relative;bottom:-2px;}
+.tab-btn:hover{color:var(--terra);background:var(--terra-lt);}
+.tab-btn.active{color:var(--navy);background:var(--white);border-color:var(--parch);font-weight:700;}
+.tab-pill{display:inline-block;color:white;font-size:10px;font-weight:700;border-radius:10px;padding:1px 7px;margin-left:5px;}
+.tab-pill.reg{background:var(--terra);}
+.tab-pill.sum{background:#e8825e;}
+.tab-panel{display:none;padding-top:20px;}.tab-panel.active{display:block;}
+.glance-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;}
+@media(max-width:480px){.glance-stats{grid-template-columns:1fr 1fr;}}
+.g-box{background:var(--terra-lt);border:1.5px solid var(--terra-bdr);border-radius:12px;padding:14px 12px;text-align:center;}
+.g-num{font-family:'Fraunces',serif;font-size:32px;font-weight:900;color:var(--terra);line-height:1;}
+.g-label{font-size:12px;font-weight:600;color:var(--soft);margin-top:4px;}
+.g-label span{display:block;font-weight:400;color:var(--muted);font-size:11px;}
+.g-due{border-radius:9px;padding:9px 14px;margin-bottom:12px;font-size:13px;font-weight:600;}
+.g-due.regular{background:var(--gold-lt);border:1.5px solid #e8d080;color:#5a3a00;}
+.g-due.summer{background:#fff8f0;border:1.5px solid #e8825e;color:#5a2a00;}
+.g-note{background:var(--terra-lt);border:1.5px solid var(--terra-bdr);border-radius:9px;padding:9px 14px;margin-bottom:16px;font-size:13px;color:var(--soft);line-height:1.6;}
+.g-note.warn{background:var(--red-lt);border-color:#f5c4cc;color:#8a1020;}
+.lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:640px){.lab-grid{grid-template-columns:1fr 1fr;}}
+.lab-btn{display:flex;flex-direction:column;gap:4px;background:var(--terra-lt);border:1.5px solid var(--terra-bdr);border-radius:14px;padding:16px;text-decoration:none;color:var(--ink);transition:all .2s;}
+.lab-btn:hover{background:var(--terra);color:white;border-color:var(--terra);transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+.lab-btn:hover .lb-cap,.lab-btn:hover .lb-sub{color:rgba(255,255,255,0.7);}
+.lab-btn:hover .lb-num{background:rgba(255,255,255,0.2)!important;color:white;}
+.lb-num{width:30px;height:30px;border-radius:50%;color:white;font-family:'Fraunces',serif;font-size:15px;font-weight:900;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.lb-cap{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.lb-title{font-size:13px;font-weight:700;line-height:1.3;}
+.lb-sub{font-size:11px;color:var(--muted);line-height:1.4;}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.info-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.7;color:var(--soft);}
+.ico{font-size:15px;margin-top:1px;flex-shrink:0;}
+.warn-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.warn-item{display:flex;align-items:flex-start;gap:12px;background:var(--red-lt);border:1.5px solid #f5c4cc;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.65;color:var(--soft);}
+.points-badge{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:white;border-radius:8px;padding:9px 18px;font-size:14px;font-weight:700;margin-top:10px;}
+.campus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px;}
+@media(max-width:540px){.campus-grid{grid-template-columns:1fr;}}
+.campus-block{background:var(--terra-lt);border:1.5px solid var(--terra-bdr);border-radius:12px;padding:14px 16px;}
+.campus-block h3{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:7px;}
+.campus-info{font-size:12.5px;color:var(--soft);line-height:1.75;}
+.campus-info a{color:var(--terra);font-weight:700;text-decoration:none;}.campus-info a:hover{text-decoration:underline;}
+.wconline-btn{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:white;border-radius:10px;padding:11px 20px;font-family:'DM Sans',sans-serif;font-size:13.5px;font-weight:700;text-decoration:none;transition:all .2s;box-shadow:var(--shadow-sm);}
+.wconline-btn:hover{background:#a03d18;transform:translateY(-1px);}
+footer{text-align:center;padding:20px;font-size:11px;color:var(--muted);position:relative;z-index:1;border-top:1px solid var(--parch);margin-top:20px;}
+@media(max-width:600px){.card-inner{padding:20px 18px;}}
+</style>
 </head>
 <body>
-    <h1>Welcome to the Spanish Lab</h1>
-    <p>Click a button below to access the activities for each lab.</p>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header role="banner">
+  <div class="flag" role="img" aria-label="Spanish flag"><div class="fbar r"></div><div class="fbar y"></div><div class="fbar r"></div></div>
+  <div class="htext"><h1>SPAN <em>1002</em></h1><p>Elementary Spanish II — Language Lab</p></div>
+  <div class="hwelcome" aria-hidden="true">
+    <div class="hwelcome-main">¡Bienvenidos!</div>
+    <div class="hwelcome-sub">University of North Georgia</div>
+  </div>
+</header>
 
-    <!-- VIDEO ACTIVITIES SECTION -->
-    <h2>🎥 Video Activity Instructions</h2>
-    <div class="lab-buttons">
-        <a href="lab-1.html">Lab 1</a>
-        <a href="lab-2.html">Lab 2</a>
-        <a href="lab-3.html">Lab 3</a>
-        <a href="lab-4.html">Lab 4</a>
-        <a href="lab-5.html">Lab 5</a>
-        <a href="lab-6.html">Lab 6</a>
+<main class="page" id="main-content">
+
+  <!-- ── LAB ASSIGNMENTS ── -->
+  <div class="card">
+    <div class="card-inner">
+      <h2 class="card-title">Lab Assignments</h2>
+
+      <div class="tabs-nav" role="tablist" aria-label="Session selection">
+        <button class="tab-btn active" id="btn-ip"  role="tab" aria-selected="true"  aria-controls="tab-ip"  onclick="showTab('ip',this)">Regular — In-Person <span class="tab-pill reg">6 labs</span></button>
+        <button class="tab-btn"        id="btn-ol"  role="tab" aria-selected="false" aria-controls="tab-ol"  onclick="showTab('ol',this)">Regular — Online <span class="tab-pill reg">6 labs</span></button>
+        <button class="tab-btn"        id="btn-sum" role="tab" aria-selected="false" aria-controls="tab-sum" onclick="showTab('sum',this)">Summer Session <span class="tab-pill sum">4 labs</span></button>
+      </div>
+
+      <!-- Regular In-Person -->
+      <div id="tab-ip" class="tab-panel active" role="tabpanel" aria-labelledby="btn-ip">
+        <div class="glance-stats" role="list">
+          <div class="g-box" role="listitem"><div class="g-num">4</div><div class="g-label">Credit hours<span>3 classroom + 1 lab</span></div></div>
+          <div class="g-box" role="listitem"><div class="g-num">6</div><div class="g-label">Lab assignments<span>Bongo video recordings</span></div></div>
+          <div class="g-box" role="listitem"><div class="g-num">25</div><div class="g-label">Points per lab<span>for completion</span></div></div>
+        </div>
+        <div class="g-due regular">📅 Due every <strong>Wednesday by 3:00 PM</strong> — no late submissions accepted</div>
+        <div class="g-note">🏠 Complete at home or 🏫 visit your campus Language Lab — a TA will guide you and answer questions. Labs 2 &amp; 3 use <strong>Camera and Screen</strong> mode in Bongo.</div>
+        <div class="lab-grid">
+          <a href="span1002-lab-1.html" class="lab-btn"><div class="lb-cap">Lab 1</div><div class="lb-num" style="background:var(--terra);">1</div><div class="lb-title">De compras</div><div class="lb-sub">Cap. 7 · clothing · colors · stem-changing · shopping</div></a>
+          <a href="span1002-lab-2.html" class="lab-btn"><div class="lb-cap">Lab 2</div><div class="lb-num" style="background:var(--terra);">2</div><div class="lb-title">Rutina para una vida sana</div><div class="lb-sub">Cap. 7 · reflexive verbs · daily routine</div></a>
+          <a href="span1002-lab-3.html" class="lab-btn"><div class="lb-cap">Lab 3</div><div class="lb-num" style="background:var(--terra);">3</div><div class="lb-title">A cocinar</div><div class="lb-sub">Cap. 8 · food · preterite · cooking sequence</div></a>
+          <a href="span1002-lab-4.html" class="lab-btn"><div class="lb-cap">Lab 4</div><div class="lb-num" style="background:var(--terra);">4</div><div class="lb-title">Días festivos</div><div class="lb-sub">Cap. 9 · holidays · imperfect · childhood</div></a>
+          <a href="span1002-lab-5.html" class="lab-btn"><div class="lb-cap">Lab 5</div><div class="lb-num" style="background:var(--terra);">5</div><div class="lb-title">La salud física y mental</div><div class="lb-sub">Cap. 10 · health · subjunctive · recommendations</div></a>
+          <a href="span1002-lab-6.html" class="lab-btn"><div class="lb-cap">Lab 6</div><div class="lb-num" style="background:var(--red);">6</div><div class="lb-title">El Repaso</div><div class="lb-sub">Cap. 7–10 · oral final prep · integration &amp; fluency</div></a>
+        </div>
+      </div>
+
+      <!-- Regular Online -->
+      <div id="tab-ol" class="tab-panel" role="tabpanel" aria-labelledby="btn-ol">
+        <div class="glance-stats" role="list">
+          <div class="g-box" role="listitem"><div class="g-num">4</div><div class="g-label">Credit hours<span>3 classroom + 1 lab</span></div></div>
+          <div class="g-box" role="listitem"><div class="g-num">6</div><div class="g-label">Lab assignments<span>Bongo video recordings</span></div></div>
+          <div class="g-box" role="listitem"><div class="g-num">25</div><div class="g-label">Points per lab<span>for completion</span></div></div>
+        </div>
+        <div class="g-due regular">📅 Due every <strong>Wednesday by 3:00 PM</strong> — no late submissions accepted</div>
+        <div class="g-note warn">⚠️ All labs are completed <strong>at home</strong> — there is no in-person lab option for online sections. Labs 2 &amp; 3 use <strong>Camera and Screen</strong> mode in Bongo.</div>
+        <div class="lab-grid">
+          <a href="span1002-lab-1-online.html" class="lab-btn"><div class="lb-cap">Lab 1</div><div class="lb-num" style="background:var(--terra);">1</div><div class="lb-title">De compras</div><div class="lb-sub">Cap. 7 · clothing · colors · stem-changing · shopping</div></a>
+          <a href="span1002-lab-2-online.html" class="lab-btn"><div class="lb-cap">Lab 2</div><div class="lb-num" style="background:var(--terra);">2</div><div class="lb-title">Rutina para una vida sana</div><div class="lb-sub">Cap. 7 · reflexive verbs · daily routine</div></a>
+          <a href="span1002-lab-3-online.html" class="lab-btn"><div class="lb-cap">Lab 3</div><div class="lb-num" style="background:var(--terra);">3</div><div class="lb-title">A cocinar</div><div class="lb-sub">Cap. 8 · food · preterite · cooking sequence</div></a>
+          <a href="span1002-lab-4-online.html" class="lab-btn"><div class="lb-cap">Lab 4</div><div class="lb-num" style="background:var(--terra);">4</div><div class="lb-title">Días festivos</div><div class="lb-sub">Cap. 9 · holidays · imperfect · childhood</div></a>
+          <a href="span1002-lab-5-online.html" class="lab-btn"><div class="lb-cap">Lab 5</div><div class="lb-num" style="background:var(--terra);">5</div><div class="lb-title">La salud física y mental</div><div class="lb-sub">Cap. 10 · health · subjunctive · recommendations</div></a>
+          <a href="span1002-lab-6-online.html" class="lab-btn"><div class="lb-cap">Lab 6</div><div class="lb-num" style="background:var(--red);">6</div><div class="lb-title">El Repaso</div><div class="lb-sub">Cap. 7–10 · oral final prep · integration &amp; fluency</div></a>
+        </div>
+      </div>
+
+      <!-- Summer -->
+      <div id="tab-sum" class="tab-panel" role="tabpanel" aria-labelledby="btn-sum">
+        <div class="glance-stats" role="list">
+          <div class="g-box" role="listitem"><div class="g-num">4</div><div class="g-label">Credit hours<span>3 classroom + 1 lab</span></div></div>
+          <div class="g-box" role="listitem"><div class="g-num">4</div><div class="g-label">Lab assignments<span>Bongo video recordings</span></div></div>
+          <div class="g-box" role="listitem"><div class="g-num">25</div><div class="g-label">Points per lab<span>for completion</span></div></div>
+        </div>
+        <div class="g-due summer">☀️ Due every <strong>Tuesday by 5:00 PM</strong> — summer moves fast, start early!</div>
+        <div class="g-note">🏠 All labs are completed at home and submitted directly via Bongo — no file uploads needed. Lab 2 uses <strong>Camera and Screen</strong> mode.</div>
+        <div class="lab-grid">
+          <a href="span1002-summer-lab-1.html" class="lab-btn"><div class="lb-cap">Lab 1</div><div class="lb-num" style="background:var(--terra);">1</div><div class="lb-title">De compras</div><div class="lb-sub">Cap. 7 · clothing · colors · stem-changing · shopping</div></a>
+          <a href="span1002-summer-lab-2.html" class="lab-btn"><div class="lb-cap">Lab 2</div><div class="lb-num" style="background:var(--terra);">2</div><div class="lb-title">Rutina para una vida sana</div><div class="lb-sub">Cap. 7 · reflexive verbs · daily routine</div></a>
+          <a href="span1002-summer-lab-3.html" class="lab-btn"><div class="lb-cap">Lab 3</div><div class="lb-num" style="background:var(--terra);">3</div><div class="lb-title">A cocinar</div><div class="lb-sub">Cap. 8 · food · preterite · cooking sequence</div></a>
+          <a href="span1002-summer-lab-4.html" class="lab-btn"><div class="lb-cap">Lab 4</div><div class="lb-num" style="background:var(--red);">4</div><div class="lb-title">La salud física y mental</div><div class="lb-sub">Cap. 10 · health · subjunctive · recommendations</div></a>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <!-- BONGO VIDEO ACTIVITIES SECTION -->
-    <h2>🎥 Bongo Video Activity Instructions</h2>
-    <div class="bongo-buttons">
-        <a href="https://junnynoh-tech.github.io/span1002-instructions/bongo-lab-1.html" target="_blank">Lab 1</a>
-        <a href="https://junnynoh-tech.github.io/span1002-instructions/bongo-lab-2.html" target="_blank">Lab 2</a>
-        <a href="https://junnynoh-tech.github.io/span1002-instructions/bongo-lab-3.html" target="_blank">Lab 3</a>
-        <a href="https://junnynoh-tech.github.io/span1002-instructions/bongo-lab-4.html" target="_blank">Lab 4</a>
-        <a href="https://junnynoh-tech.github.io/span1002-instructions/bongo-lab-5.html" target="_blank">Lab 5</a>
-        <a href="https://junnynoh-tech.github.io/span1002-instructions/bongo-lab-6.html" target="_blank">Lab 6</a>
+  <!-- ── KEY REMINDERS ── -->
+  <div class="card">
+    <div class="card-inner">
+      <h2 class="card-title">Key Points to Remember</h2>
+      <ul class="warn-list">
+        <li class="warn-item"><span class="ico">🕐</span><span><strong>No late submissions.</strong> Contact the Language Lab <em>before</em> the deadline if you have a technology issue — not after.</span></li>
+        <li class="warn-item"><span class="ico">🖥️</span><span><strong>Camera and Screen mode (Labs 2 &amp; 3).</strong> Open your slides in a separate window <em>before</em> starting Bongo. Share the whole window, not a browser tab.</span></li>
+        <li class="warn-item"><span class="ico">📖</span><span><strong>Approved resources only.</strong> Class notes, your Vistas textbook, and a dictionary. Do not read from a prepared script.</span></li>
+        <li class="warn-item"><span class="ico">📊</span><span><strong>Rubric available in Bongo.</strong> Open the assignment to see the grading rubric before you record.</span></li>
+        <li class="warn-item"><span class="ico">🚫</span><span><strong>Academic integrity.</strong> Online translators, AI tools, or outside help may result in serious academic consequences.</span></li>
+        <li class="warn-item"><span class="ico">📬</span><span><strong>Check your UNG email.</strong> If due dates or instructions change, you will be notified there.</span></li>
+      </ul>
     </div>
+  </div>
 
-    <!-- EXTEMPORE PREPARATION SECTION -->
-    <h2>🎤 Extempore Preparación Activities</h2>
-    <div class="extempore-buttons">
-        <a href="lab-1-prep.html">Lab 1</a>
-        <a href="lab-2-prep.html">Lab 2</a>
-        <a href="lab-3-prep.html">Lab 3</a>
-        <a href="lab-4-prep.html">Lab 4</a>
-        <a href="lab-5-prep.html">Lab 5</a>
-        <a href="lab-6-prep.html">Lab 6</a>
+  <!-- ── GRADING ── -->
+  <div class="card">
+    <div class="card-inner">
+      <h2 class="card-title">Grading</h2>
+      <p class="bt">Lab assignments are graded by <strong>Language Lab staff</strong> — not your course instructor. Grading typically takes about one week. Questions about grades go directly to the Language Lab — not your professor.</p>
+      <span class="points-badge">🏅 Up to 25 points per lab for completion</span>
     </div>
+  </div>
 
+  <!-- ── GET HELP ── -->
+  <div class="card">
+    <div class="card-inner">
+      <h2 class="card-title">Get Help</h2>
+      <p class="bt" style="margin-bottom:16px;">Have a language question, a technology issue, or need extra practice? Reach out to your campus Language Lab.</p>
+      <div class="campus-grid">
+        <div class="campus-block">
+          <h3>📍 Gainesville</h3>
+          <div class="campus-info">Martha T. Nesbitt 4201<br>Mon–Fri, 8:00 AM – 5:00 PM<br><a href="mailto:languagelab-gvl@ung.edu">languagelab-gvl@ung.edu</a><br>(678) 717-3868</div>
+        </div>
+        <div class="campus-block">
+          <h3>📍 Dahlonega</h3>
+          <div class="campus-info">Dunlap Hall 317<br>Mon–Fri, 8:00 AM – 5:00 PM<br><a href="mailto:languagelab-dah@ung.edu">languagelab-dah@ung.edu</a><br>(706) 864-1682</div>
+        </div>
+        <div class="campus-block">
+          <h3>📍 Oconee</h3>
+          <div class="campus-info">Student Resource Center 573<br>Mon–Fri, 8:00 AM – 5:00 PM<br><a href="mailto:languagelab-ocn@ung.edu">languagelab-ocn@ung.edu</a><br>(706) 310-6296</div>
+        </div>
+        <div class="campus-block">
+          <h3>📍 Cumming</h3>
+          <div class="campus-info">Room 1219<br>Mon–Thu, 8:00 AM – 5:00 PM · Fri: closed<br><a href="mailto:languagelab-cmg@ung.edu">languagelab-cmg@ung.edu</a><br>(470) 239-3111</div>
+        </div>
+      </div>
+      <a href="https://unglanglab.mywconline.com" target="_blank" rel="noopener" class="wconline-btn">🗓️ Reserve a session on WCONLINE →</a>
+    </div>
+  </div>
+
+</main>
+<footer>SPAN 1002 — Elementary Spanish II Language Lab &nbsp;·&nbsp; University of North Georgia</footer>
+
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-selected','false');});
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');btn.setAttribute('aria-selected','true');
+}
+</script>
+<script>
+(function(){
+  var flags=[
+    {name:"España",b:["#c8102e","#b8952a","#c8102e"],accent:"#e8a87c"},
+    {name:"México",b:["#006847","#ffffff","#ce1126"],accent:"#e8a87c"},
+    {name:"Argentina",b:["#74acdf","#ffffff","#74acdf"],accent:"#e8a87c"},
+    {name:"Colombia",b:["#fcd116","#003087","#ce1126"],accent:"#fcd116"},
+    {name:"Chile",b:["#d52b1e","#ffffff","#002d62"],accent:"#e8a87c"},
+    {name:"Perú",b:["#d91023","#ffffff","#d91023"],accent:"#e8a87c"},
+    {name:"Venezuela",b:["#cf142b","#00247d","#cf9a00"],accent:"#cf9a00"},
+    {name:"Cuba",b:["#002a8f","#ffffff","#002a8f"],accent:"#e8a87c"},
+    {name:"Ecuador",b:["#ffd100","#003893","#ef3340"],accent:"#ffd100"},
+    {name:"Bolivia",b:["#d52b1e","#f4e400","#007a3d"],accent:"#f4e400"},
+    {name:"Guatemala",b:["#4997d0","#ffffff","#4997d0"],accent:"#e8a87c"},
+    {name:"Costa Rica",b:["#002b7f","#cf142b","#ffffff"],accent:"#e8a87c"},
+    {name:"Uruguay",b:["#ffffff","#5b9bd5","#ffffff"],accent:"#5b9bd5"},
+    {name:"Honduras",b:["#009bde","#ffffff","#009bde"],accent:"#e8a87c"},
+    {name:"Nicaragua",b:["#003f87","#ffffff","#003f87"],accent:"#e8a87c"},
+    {name:"El Salvador",b:["#0f47af","#ffffff","#0f47af"],accent:"#e8a87c"},
+    {name:"República Dom.",b:["#002d62","#cf142b","#002d62"],accent:"#e8a87c"},
+    {name:"Puerto Rico",b:["#002d62","#ffffff","#cf142b"],accent:"#e8a87c"},
+    {name:"Panamá",b:["#da121a","#ffffff","#005eb8"],accent:"#e8a87c"},
+    {name:"Paraguay",b:["#d52b1e","#ffffff","#0032a0"],accent:"#e8a87c"}
+  ];
+  for(var i=flags.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=flags[i];flags[i]=flags[j];flags[j]=t;}
+  var idx=0,bars=document.querySelectorAll('.flag .fbar'),wrapper=bars.length?bars[0].closest('.flag'):null,accentEl=document.querySelector('.htext h1 em'),tip=null;
+  for(var b=0;b<bars.length;b++){bars[b].style.transition='background 0.9s ease';}
+  if(accentEl)accentEl.style.transition='color 0.9s ease';
+  function applyFlag(f){
+    if(bars.length===3){bars[0].style.background=f.b[0];bars[1].style.background=f.b[1];bars[2].style.background=f.b[2];}
+    if(wrapper)wrapper.setAttribute('aria-label','Flag of '+f.name);
+    if(accentEl)accentEl.style.color=f.accent;
+    if(tip){tip.style.opacity='0';setTimeout(function(){tip.textContent=f.name;},200);}
+  }
+  applyFlag(flags[0]);
+  if(wrapper){
+    wrapper.style.position='relative';tip=document.createElement('div');tip.textContent=flags[0].name;
+    tip.style.cssText='position:absolute;left:52px;top:0;background:rgba(0,0,0,0.72);color:white;font-size:10px;font-weight:700;letter-spacing:.5px;padding:3px 8px;border-radius:4px;white-space:nowrap;opacity:0;transition:opacity .2s;pointer-events:none;z-index:10;';
+    wrapper.appendChild(tip);
+    wrapper.addEventListener('mouseenter',function(){tip.style.opacity='1';});
+    wrapper.addEventListener('mouseleave',function(){tip.style.opacity='0';});
+  }
+  setInterval(function(){idx=(idx+1)%flags.length;applyFlag(flags[idx]);},6000);
+})();
+</script>
 </body>
 </html>
