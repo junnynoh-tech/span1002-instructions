@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>SPAN 1002 — Summer Lab 1 Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --red:#c8102e;--gold:#b8952a;--navy:#002147;
+  --terra:#c25425;--terra-lt:#fef3ee;--terra-bdr:rgba(194,84,37,0.3);
+  --ink:#0d1525;--soft:#1e3a5f;--muted:#4a5f75;
+  --cream:#faf8f6;--white:#fff;--parch:#ede8e3;
+  --shadow:0 4px 24px rgba(0,33,71,0.10),0 1px 4px rgba(0,33,71,0.06);
+  --shadow-sm:0 2px 8px rgba(0,33,71,0.07);
+  --red-lt:#fff0f2;--gold-lt:#fffbf0;--gold-bdr:rgba(184,149,42,0.4);
+  --green:#1a5c1a;--green-lt:#f0f9f0;--green-bdr:#a8d5ae;
+}
+body{font-family:'DM Sans',Arial,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse at 5% 10%,rgba(200,16,46,0.04) 0%,transparent 50%),
+             radial-gradient(ellipse at 95% 90%,rgba(194,84,37,0.04) 0%,transparent 50%);
+  pointer-events:none;z-index:0;}
+.skip-link{position:absolute;top:-40px;left:0;background:var(--gold);color:var(--ink);
+  padding:8px 16px;font-weight:700;z-index:10000;border-radius:0 0 8px 0;transition:top .2s;}
+.skip-link:focus{top:0;}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px;}
+header{background:var(--navy);color:white;padding:24px 48px;display:flex;align-items:center;
+  gap:24px;position:relative;overflow:hidden;z-index:1;}
+header::after{content:'DOS';position:absolute;right:-10px;top:50%;transform:translateY(-50%);
+  font-family:'Fraunces',serif;font-size:110px;font-weight:900;color:rgba(255,255,255,0.03);
+  letter-spacing:-4px;pointer-events:none;}
+.flag{display:flex;flex-direction:column;gap:3px;flex-shrink:0;}
+.fbar{width:40px;height:5px;border-radius:2px;}
+.fbar.r{background:var(--red);}.fbar.y{background:var(--gold);}
+.htext h1{font-family:'Fraunces',serif;font-size:30px;font-weight:900;letter-spacing:-0.5px;line-height:1;}
+.htext h1 em{color:#f4a460;font-style:normal;}
+.htext p{margin-top:3px;font-size:11px;font-weight:300;color:rgba(255,255,255,0.45);letter-spacing:.5px;}
+.hbadge{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:5px;position:relative;z-index:1;}
+.session-badge{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;white-space:nowrap;}
+.session-badge.reg{background:linear-gradient(135deg,#005fa3,#003a72);color:white;}
+.session-badge.online{background:linear-gradient(135deg,#5b21b6,#3b0e8c);color:white;}
+.session-badge.summer{background:linear-gradient(135deg,#e8825e,#c9a84c);color:white;}
+.page{max-width:960px;margin:0 auto;padding:36px 24px 60px;position:relative;z-index:1;}
+.card{background:var(--white);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:20px;}
+.card-inner{padding:26px 30px;}
+@media(max-width:640px){.card-inner{padding:18px;}.page{padding:20px 14px 40px;}}
+h2.card-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--navy);
+  margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--terra-lt);}
+.slabel{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:20px 0 10px;}
+.slabel:first-child{margin-top:0;}
+.slabel::after{content:'';flex:1;height:1px;background:var(--parch);}
+.alert{border-radius:10px;padding:11px 15px;font-size:13px;line-height:1.65;
+  display:flex;gap:9px;align-items:flex-start;margin-bottom:10px;}
+.alert.gold{background:var(--gold-lt);border:1.5px solid var(--gold-bdr);color:#5a3e00;}
+.alert.red{background:var(--red-lt);border:1.5px solid #f5c4cc;color:#7a0010;}
+.alert.green{background:var(--green-lt);border:1.5px solid var(--green-bdr);color:#1a3d1a;}
+.alert.info{background:var(--terra-lt);border:1.5px solid var(--terra-bdr);color:#7a2c00;}
+.alert.navy{background:#e8f0f8;border:1.5px solid #b8ccde;color:var(--soft);}
+.item-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:0;}
+.item-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.65;
+  color:var(--soft);padding:10px 14px;background:var(--cream);border:1.5px solid var(--parch);border-radius:9px;}
+.item-list li .ico{font-size:15px;flex-shrink:0;margin-top:1px;}
+.step-num{width:26px;height:26px;min-width:26px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--terra),#9e3e1a);color:white;font-size:12px;
+  font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;
+  box-shadow:0 2px 6px rgba(194,84,37,0.3);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+.stat-card{background:var(--white);border:1.5px solid var(--parch);border-radius:12px;
+  padding:18px 16px;text-align:center;box-shadow:var(--shadow-sm);}
+.stat-num{font-family:'Fraunces',serif;font-size:42px;font-weight:900;color:var(--terra);line-height:1;}
+.stat-label{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:.3px;}
+.stat-sub{font-size:11px;color:var(--muted);margin-top:2px;font-style:italic;}
+.lab-row{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--parch);}
+.lab-row:first-child{border-top:none;}
+.lab-circle{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#f4a460;
+  font-family:'Fraunces',serif;font-size:18px;font-weight:900;display:flex;align-items:center;
+  justify-content:center;flex-shrink:0;margin-top:2px;}
+.lab-row-body h3{font-size:15px;font-weight:700;color:var(--ink);font-family:'Fraunces',serif;
+  font-style:italic;margin-bottom:4px;}
+.chip{display:inline-flex;align-items:center;gap:4px;background:var(--cream);border:1.5px solid var(--parch);
+  border-radius:20px;padding:2px 10px;font-size:11px;font-weight:500;color:var(--soft);margin:2px 2px 2px 0;}
+.chip.terra{background:var(--terra-lt);border-color:var(--terra-bdr);color:var(--terra);}
+.chip.green{background:var(--green-lt);border-color:var(--green-bdr);color:var(--green);}
+.chip.gold{background:var(--gold-lt);border-color:var(--gold-bdr);color:#7a5f00;}
+.btn{display:inline-flex;align-items:center;gap:7px;color:white;border:none;border-radius:10px;
+  padding:11px 18px;font-family:'DM Sans',Arial,sans-serif;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .2s;box-shadow:var(--shadow-sm);text-decoration:none;white-space:nowrap;}
+.btn:hover{filter:brightness(.88);transform:translateY(-1px);}
+.btn.terra{background:var(--terra);}
+.btn.navy{background:var(--navy);}
+.btn.green{background:var(--green);}
+.info-row{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.65;
+  color:var(--soft);margin-bottom:10px;}
+.info-row:last-child{margin-bottom:0;}
+.info-row strong{color:var(--ink);}
+footer{text-align:center;padding:18px;font-size:11px;color:var(--muted);position:relative;z-index:1;}
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,15,45,0.85);z-index:9999;display:none;
+  align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);}
+.modal.open{display:flex;}
+.modal-panel{background:white;border-radius:14px;width:100%;max-width:600px;max-height:88vh;
+  overflow-y:auto;padding:26px 28px;position:relative;}
+.modal-close{position:absolute;top:12px;right:12px;background:var(--cream);
+  border:1.5px solid var(--parch);border-radius:50%;width:28px;height:28px;cursor:pointer;
+  font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
+.modal-close:hover{background:var(--red);color:white;}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<header role="banner">
+  <div class="flag" role="img" aria-label="Spanish flag">
+    <div class="fbar r"></div><div class="fbar y"></div><div class="fbar r"></div>
+  </div>
+  <div class="htext"><h1>SPAN <em>1002</em></h1><p>Elementary Spanish II — Language Lab</p></div>
+  <div class="hbadge"><span class="session-badge summer">☀️ Summer Session</span></div>
+</header>
+<main class="page" id="main">
+  <div class="card">
+    <div class="card-inner">
+      <h2 class="card-title">Lab 1: De compras — Preparation Mini-Quiz</h2>
+      <p style="font-size:14px;line-height:1.75;color:var(--soft);margin-bottom:14px;">In this <strong>mini-quiz</strong>, you will practice:</p>
+      <ol style="list-style:decimal;margin-left:20px;font-size:14px;color:var(--soft);line-height:1.8;">
+        <li style="margin-bottom:6px;">Vocabulary about clothing and verbs related to shopping</li>
+        <li style="margin-bottom:6px;">Use of the verbs <strong>llevar</strong> and <strong>comprar</strong> in the past tense (preterite)</li>
+        <li style="margin-bottom:6px;">Comparing what you wear now with what you wore in high school</li>
+      </ol>
+      <div class="alert gold" style="margin-top:14px;"><span>📌</span><span>Complete this quiz <strong>before</strong> opening the Bongo recording assignment. It is part of your lab grade.</span></div>
+      
+    </div>
+  </div>
+</main>
+<footer>SPAN 1002 · Language Lab · University of North Georgia</footer>
+<script>
+(function(){
+  var flags=[
+    {b:["#c8102e","#b8952a","#c8102e"],acc:"#f4a460"},
+    {b:["#006847","#ffffff","#ce1126"],acc:"#f4a460"},
+    {b:["#74acdf","#ffffff","#74acdf"],acc:"#f4a460"},
+    {b:["#fcd116","#003087","#ce1126"],acc:"#fcd116"},
+    {b:["#d52b1e","#ffffff","#002d62"],acc:"#f4a460"},
+    {b:["#d91023","#ffffff","#d91023"],acc:"#f4a460"},
+    {b:["#002a8f","#ffffff","#cf142b"],acc:"#f4a460"},
+    {b:["#ffd100","#003893","#ef3340"],acc:"#ffd100"},
+    {b:["#4997d0","#ffffff","#4997d0"],acc:"#f4a460"},
+    {b:["#003f87","#ffffff","#003f87"],acc:"#f4a460"},
+    {b:["#d52b1e","#f4e400","#007a3d"],acc:"#f4e400"},
+  ];
+  for(var i=flags.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=flags[i];flags[i]=flags[j];flags[j]=t;}
+  var idx=0,bars=document.querySelectorAll('.flag .fbar'),acEl=document.querySelector('.htext h1 em');
+  for(var b=0;b<bars.length;b++)bars[b].style.transition='background 0.9s ease';
+  if(acEl)acEl.style.transition='color 0.9s ease';
+  function apply(f){if(bars.length===3){bars[0].style.background=f.b[0];bars[1].style.background=f.b[1];bars[2].style.background=f.b[2];}if(acEl)acEl.style.color=f.acc;}
+  apply(flags[0]);
+  setInterval(function(){idx=(idx+1)%flags.length;apply(flags[idx]);},6000);
+})();
+function openModal(id){var m=document.getElementById(id);if(!m)return;m.classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){var m=document.getElementById(id);if(!m)return;m.classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open');document.body.style.overflow='';})}});
+</script>
+</body>
+</html>
